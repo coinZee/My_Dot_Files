@@ -1,0 +1,243 @@
+set $mod Mod1
+
+exec --no-startup-id xset r rate 250 50
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Scrolling Pixel Distance" 800 
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Middle Emulation Enabled" 1 
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Natural Scrolling Enabled" 1 
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Tapping Enabled" 1 
+
+# exec --no-startup-id numlockx
+# exec --no-startup-id picom --config ~/.config/i3/themes/catppuccin/picom/picom.conf
+exec_always --no-startup-id swaybg -i /home/coinz/wallpapers/anime-wallpapers.jpg -m fill
+# exec --no-startup-id ~/.config/i3/themes/catppuccin/scripts/launch_polybar.sh
+exec --no-startup-id waybar
+# exec --no-startup-id ~/.config/polybar/launch.sh --hack
+# exec --no-startup-id feh --bg-scale ~/.config/i3/themes/catppuccin/wallpapers/catppuccin_cup.jpg
+exec --no-startup-id dunst -conf ~/.config/i3/themes/catppuccin/dunst/dunstrc
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+exec --no-startup-id xsetroot -cursor_name left_ptr
+# exec --no-startup-id firefox
+# exec --no-startup-id telegram-desktop -startintray
+
+exec --no-startup-id stalonetray
+
+exec --no-startup-id xset r rate 250 50
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Scrolling Pixel Distance" 800 
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Middle Emulation Enabled" 1 
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Natural Scrolling Enabled" 1 
+exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Tapping Enabled" 1 
+
+
+exec_always --no-startup-id autotiling
+
+assign [class="Lutris"] $ws6
+
+for_window [class="Lutris"] floating enable
+for_window [class="Lutris"] resize set 1200 700
+for_window [class="Lutris"] move absolute position center
+
+for_window [class="firefox"] floating disable
+# for_window [class="firefox"] resize set 1600 900
+# for_window [class="firefox"] move absolute position center
+for_window [class="steam"] move to workspace 7
+for_window [class="firefox"] move to workspace 2
+
+
+for_window [class="hiddify"] move to workspace 5
+for_window [class="steam*"] move to workspace 7
+for_window [class="steam_app"] move to workspace 7
+for_window [class="steam"] move to workspace 7
+for_window [class="discord"] move to workspace 6
+
+for_window [class="Viewnior"] floating enable
+for_window [class="Viewnior"] move absolute position center
+
+for_window [class="Lutris"] focus
+
+font pango:monospace 8
+
+
+gaps inner 10
+gaps outer 4
+smart_gaps off
+
+
+default_border pixel 0
+
+for_window [tiling] border pixel 2
+for_window [floating] border pixel 2
+
+# smart_borders on
+
+client.focused			#cad3f5 #cad3f5 #cad3f5 #cad3f5
+client.focused_inactive	#24273a #24273a #24273a #24273a
+client.unfocused		#24273a #24273a #24273a #24273a
+client.urgent			#E78284 #E78284 #E78284 #E78284
+client.placeholder		#24273a #24273a #24273a #24273a
+
+
+set $refresh_i3status killall -SIGUSR1 i3status
+
+bindsym $mod+Print exec --no-startup-id sh -c 'mkdir -p ~/ss && FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && scrot "$FILE" && xclip -selection clipboard -t image/png -i "$FILE"'
+# bindsym $mod+Print exec --no-startup-id scrot -q 100 - | xclip -selection clipboard -t image/png
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+
+floating_modifier $mod
+
+# tiling_drag modifier titlebar
+
+# Toggle between current and previous workspace with Mod+Tab
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Print exec scrot ~/ss/%Y-%m-%d_%H-%M-%S.png
+
+# bindsym $mod+Return exec alacritty --config-file ~/.config/i3/themes/catppuccin/alacritty/alacritty.yml 
+bindsym $mod+Return exec --no-startup-id kitty
+# bindsym Mod1+t exec --no-startup-id rofi -show drun -config ~/.config/i3/themes/catppuccin/rofi/menu.rasi -show-icons
+bindsym $mod+d exec wofi --show drun
+bindsym $mod+n exec --no-startup-id nemo
+bindsym $mod+i exec --no-startup-id inkscape
+bindsym $mod+Shift+b exec --no-startup-id firefox
+bindsym $mod+b exec --no-startup-id blender
+bindsym $mod+g exec --no-startup-id lutris
+
+# bindsym $mod+q exec ~/.config/i3/themes/catppuccin/scripts/quit_or_tray.sh
+bindsym $mod+q kill
+
+# bindsym $mod+q exec --no-startup-id bash -c "~/.config/i3/quit_or_tray.sh"
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# bindsym $mod+h split h
+
+
+bindsym $mod+v split v
+
+
+bindsym $mod+f fullscreen toggle
+
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+
+bindsym $mod+Shift+space floating toggle
+
+
+bindsym $mod+space focus mode_toggle
+
+
+bindsym $mod+a focus parent
+
+
+#bindsym $mod+d focus child
+
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+bindsym $mod+Shift+c reload
+
+
+bindsym $mod+Shift+r restart
+
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+mode "resize" {
+
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+
+
+input * {
+    repeat_delay 250
+    repeat_rate 50
+}
+
+input "type:touchpad" {
+    scroll_method     two_finger
+    middle_emulation  enabled
+    natural_scroll    enabled
+    tap              enabled
+}
+
+bindsym $mod+r mode "resize"
+
