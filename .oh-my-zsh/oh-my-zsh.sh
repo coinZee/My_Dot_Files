@@ -1,5 +1,4 @@
 # ANSI formatting function (\033[<code>m)
-# what
 # 0: reset, 1: bold, 4: underline, 22: no bold, 24: no underline, 31: red, 33: yellow
 omz_f() {
   [ $# -gt 0 ] || return
