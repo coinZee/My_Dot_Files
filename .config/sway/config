@@ -9,6 +9,7 @@ exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Tapping En
 # exec --no-startup-id numlockx
 # exec --no-startup-id picom --config ~/.config/i3/themes/catppuccin/picom/picom.conf
 exec_always --no-startup-id swaybg -i /home/coinz/wallpapers/anime-wallpapers.jpg -m fill
+
 # exec --no-startup-id ~/.config/i3/themes/catppuccin/scripts/launch_polybar.sh
 exec --no-startup-id waybar
 # exec --no-startup-id ~/.config/polybar/launch.sh --hack
@@ -100,7 +101,7 @@ bindsym $mod+Shift+Tab workspace prev
 # bindsym $mod+Print exec scrot ~/ss/%Y-%m-%d_%H-%M-%S.png
 
 # bindsym $mod+Return exec alacritty --config-file ~/.config/i3/themes/catppuccin/alacritty/alacritty.yml 
-bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id foot
 # bindsym Mod1+t exec --no-startup-id rofi -show drun -config ~/.config/i3/themes/catppuccin/rofi/menu.rasi -show-icons
 bindsym $mod+d exec wofi --show drun
 bindsym $mod+n exec --no-startup-id nemo
@@ -205,7 +206,9 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+bindsym $mod+Shift+e exec bash -c 'if [ "$(echo -e "Yes\nNo" | wofi --dmenu --prompt="Exit Sway?")" = "Yes" ]; then swaymsg exit; fi'
 
 
 mode "resize" {
