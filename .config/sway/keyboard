@@ -1,0 +1,9 @@
+input "1:2:AT_Raw_Set_2_keyboard" {
+  xkb_layout us
+  xkb_options grp:toggle
+  xkb_model pc105
+  repeat_delay 300
+  repeat_rate 40
+  xkb_capslock disabled
+  xkb_numlock disabled
+}

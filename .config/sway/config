@@ -1,4 +1,4 @@
-set $mod Mod1
+set $mod Mod4
 
 exec --no-startup-id xset r rate 250 50
 exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Scrolling Pixel Distance" 800 
@@ -52,7 +52,7 @@ for_window [class="hiddify"] move to workspace 5
 for_window [class="steam*"] move to workspace 7
 for_window [class="steam_app"] move to workspace 7
 for_window [class="steam"] move to workspace 7
-for_window [class="discord"] move to workspace 6
+for_window [class="discord"] move to workspace 3
 
 for_window [class="Viewnior"] floating enable
 for_window [class="Viewnior"] move absolute position center
@@ -83,7 +83,9 @@ client.placeholder		#24273a #24273a #24273a #24273a
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
-bindsym $mod+Print exec --no-startup-id sh -c 'mkdir -p ~/ss && FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && scrot "$FILE" && xclip -selection clipboard -t image/png -i "$FILE"'
+bindsym $mod+Print exec --no-startup-id sh -c 'mkdir -p ~/Pictures/Screenshots && FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && grim "$FILE" && wl-copy < "$FILE"'
+
+# bindsym $mod+Print exec --no-startup-id sh -c 'mkdir -p ~/ss && FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && scrot "$FILE" && xclip -selection clipboard -t image/png -i "$FILE"'
 # bindsym $mod+Print exec --no-startup-id scrot -q 100 - | xclip -selection clipboard -t image/png
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
@@ -244,3 +246,9 @@ input "type:touchpad" {
 
 bindsym $mod+r mode "resize"
 
+output "eDP-1" {
+   mode 1280x720@60Hz
+}
+include keyboard
+include pointer
+include touchpad
