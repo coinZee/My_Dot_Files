@@ -76,10 +76,11 @@ plugins=(
   git 
   zsh-autosuggestions 
   zsh-syntax-highlighting 
+  zsh-vi-mode
   zsh-fzf-history-search
 )
 source $ZSH/oh-my-zsh.sh
-
+bindkey -M viins 'jk' vi-cmd-mode
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -108,3 +109,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias modal="python -m modal"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/coinz/.lmstudio/bin"
+# End of LM Studio CLI section
+

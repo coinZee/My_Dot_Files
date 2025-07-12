@@ -1,4 +1,4 @@
-set $mod Mod4
+set $mod Mod1
 
 exec --no-startup-id xset r rate 250 50
 exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Scrolling Pixel Distance" 800 
@@ -15,6 +15,11 @@ exec --no-startup-id waybar
 # exec --no-startup-id ~/.config/polybar/launch.sh --hack
 # exec --no-startup-id feh --bg-scale ~/.config/i3/themes/catppuccin/wallpapers/catppuccin_cup.jpg
 exec --no-startup-id dunst -conf ~/.config/i3/themes/catppuccin/dunst/dunstrc
+
+exec swayidle -w \
+    timeout 600 '~/.local/bin/shutdown-if-on-battery.sh' \
+    resume 'echo "Resumed activity"' \
+    before-sleep 'lock'
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -45,7 +50,7 @@ for_window [class="firefox"] floating disable
 # for_window [class="firefox"] resize set 1600 900
 # for_window [class="firefox"] move absolute position center
 for_window [class="steam"] move to workspace 7
-for_window [class="firefox"] move to workspace 2
+for_window [class="firefox"] move to workspace 1
 
 
 for_window [class="hiddify"] move to workspace 5
@@ -105,6 +110,7 @@ bindsym $mod+Shift+Tab workspace prev
 # bindsym $mod+Return exec alacritty --config-file ~/.config/i3/themes/catppuccin/alacritty/alacritty.yml 
 bindsym $mod+Return exec --no-startup-id foot
 # bindsym Mod1+t exec --no-startup-id rofi -show drun -config ~/.config/i3/themes/catppuccin/rofi/menu.rasi -show-icons
+bindsym $mod+Shift+d exec firefox --private-window https://cuty.io/Mainvid
 bindsym $mod+d exec wofi --show drun
 bindsym $mod+n exec --no-startup-id nemo
 bindsym $mod+i exec --no-startup-id inkscape
@@ -188,7 +194,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
-
+bindsym $mod+grave workspace number $ws8
 
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
