@@ -1,0 +1,32 @@
+# Alacritty configuration file translated from your foot config.
+
+# [font] section (from foot's [main])
+[font]
+# Alacritty does DPI scaling by default, so 'dpi-aware=yes'
+# from foot is the default behavior.
+size = 9.0
+
+[font.normal]
+family = "Adwaita Mono"
+
+# To use JetBrainsMonoNL Nerd Font Mono instead, comment above and uncomment below:
+# size = 16.0
+# [font.normal]
+# family = "JetBrainsMonoNL Nerd Font Mono"
+
+
+# [mouse] section
+[mouse]
+hide_when_typing = true
+
+
+# [colors] section
+# Colors must have a '0x' prefix in Alacritty config
+[colors.primary]
+background = "0x1E1E2E"
+foreground = "0xe9ecf7"
+
+[colors.selection]
+background = "0xF5E0DC"
+foreground = "0x1E1E2E"
+
