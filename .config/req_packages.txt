@@ -1,0 +1,15 @@
+i3-wm
+polybar
+feh
+autotiling
+alacritty
+ttf-jetbrains-mono-nerd
+NetworkManager
+dmenu
+xorg-xset
+xorg-xinput
+dex
+xss-lock
+i3lock
+pulseaudio-utils
+psmisc
