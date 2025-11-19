@@ -16,12 +16,12 @@ exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Scrolling 
 exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Middle Emulation Enabled" 1 
 exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Natural Scrolling Enabled" 1 
 exec --no-startup-id xinput set-prop "Synaptics TM3145-007" "libinput Tapping Enabled" 1 
-
+exec --no-startup-id xinput set-prop "Razer Razer Viper Mini" "libinput Accel Profile Enabled" 0 1 0
 exec --no-startup-id feh --bg-scale /home/coinz/wallpapers/anime-wallpapers.jpg
 
 
 exec_always --no-startup-id autotiling
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id ~/.config/polybar/launch.sh
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -184,6 +184,13 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+
+assign [class="(?i)discord"] 8
+assign [class="(?i)discord-canary"] 8
+assign [class="(?i)firefox"] 2
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

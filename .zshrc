@@ -115,3 +115,6 @@ alias modal="python -m modal"
 export PATH="$PATH:/home/coinz/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH=/home/coinz/.local/bin:$PATH
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

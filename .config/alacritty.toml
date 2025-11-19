@@ -4,7 +4,7 @@
 [font]
 # Alacritty does DPI scaling by default, so 'dpi-aware=yes'
 # from foot is the default behavior.
-size = 9.0
+size = 10.0
 
 [font.normal]
 family = "Adwaita Mono"
