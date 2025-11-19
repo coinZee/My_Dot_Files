@@ -187,8 +187,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 
 
-assign [class="(?i)discord"] 8
-assign [class="(?i)discord-canary"] 8
+assign [class="(?i)discord"] 9
+assign [class="(?i)discord-canary"] 9
 assign [class="(?i)firefox"] 2
 
 
