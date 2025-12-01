@@ -23,7 +23,8 @@ hide_when_typing = true
 # [colors] section
 # Colors must have a '0x' prefix in Alacritty config
 [colors.primary]
-background = "0x1E1E2E"
+# background = "0x1E1E2E"
+background = "0x373e4d"
 foreground = "0xe9ecf7"
 
 [colors.selection]
